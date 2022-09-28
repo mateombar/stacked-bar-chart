@@ -2,7 +2,7 @@ async function draw() {
   // Data
   const dataset = await d3.csv("data.csv", (d, index, columns) => {
     d3.autoType(d);
-    d.total = d3.sum(columns, (c) => d[c])
+    d.total = d3.sum(columns, (c) => d[c]);
 
     return d;
   });
@@ -23,8 +23,7 @@ async function draw() {
   const svg = d3
     .select("#chart")
     .append("svg")
-    .attr("width", dimensions.width)
-    .attr("height", dimensions.height);
+    .attr("viewBox", `0, 0, ${dimensions.width}, ${dimensions.height}`);
 
   const ctr = svg
     .append("g")
